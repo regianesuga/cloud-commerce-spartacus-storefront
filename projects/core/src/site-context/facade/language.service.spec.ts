@@ -1,7 +1,9 @@
+import { Type } from '@angular/core';
 import { inject, TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
 import * as ngrxStore from '@ngrx/store';
 import { Store, StoreModule } from '@ngrx/store';
+import { SiteContextConfig } from '@spartacus/core';
 import { of } from 'rxjs';
 import { Language } from '../../model/misc.model';
 import { SiteConnector } from '../connectors/site.connector';
@@ -59,9 +61,9 @@ describe('LanguageService', () => {
       ],
     });
 
-    store = TestBed.get(Store);
+    store = TestBed.get(Store as Type<Store<StateWithSiteContext>>);
     spyOn(store, 'dispatch').and.callThrough();
-    service = TestBed.get(LanguageService);
+    service = TestBed.get(LanguageService as Type<LanguageService>);
   });
 
   it('should LanguageService is injected', inject(

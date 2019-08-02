@@ -5,6 +5,7 @@ export const LANGUAGES = 'languages';
 export const CURRENCIES = 'currencies';
 export const PAGES = 'pages';
 export const TITLES = 'titles';
+export const CART = 'cart';
 
 export const LANGUAGE_LABEL = 'Language';
 export const CURRENCY_LABEL = 'Currency';
@@ -47,7 +48,9 @@ export const PRODUCT_NAME_DETAILS_DE = 'Stativ mit Fernbedienung';
 export const PRODUCT_NAME_SEARCH_DE =
   'FUN Einwegkamera mit Blitz, 27+12 Bilder';
 export const TITLE_DE = 'Herr';
-export const MONTH_DE = 'Juni';
+export const MONTH_DE = new Date().toLocaleDateString('de-DE', {
+  month: 'long',
+});
 
 export const PRODUCT_PATH_1 = `/product/${PRODUCT_ID_1}`;
 export const PRODUCT_PATH_2 = `/product/${PRODUCT_ID_2}`;

@@ -1,7 +1,9 @@
+import { Type } from '@angular/core';
 import { inject, TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
 import * as ngrxStore from '@ngrx/store';
 import { Store, StoreModule } from '@ngrx/store';
+import { SiteContextConfig } from '@spartacus/core';
 import { of } from 'rxjs';
 import { Currency } from '../../model/misc.model';
 import { SiteConnector } from '../connectors/site.connector';
@@ -60,9 +62,9 @@ describe('CurrencyService', () => {
       ],
     });
 
-    store = TestBed.get(Store);
+    store = TestBed.get(Store as Type<Store<StateWithSiteContext>>);
     spyOn(store, 'dispatch').and.callThrough();
-    service = TestBed.get(CurrencyService);
+    service = TestBed.get(CurrencyService as Type<CurrencyService>);
   });
 
   it('should CurrencyService is injected', inject(
